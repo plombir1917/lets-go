@@ -11,5 +11,7 @@ func main() {
 
 	m1["foo"] = "bar"
 
-	fmt.Println(m1)
+	LiteralMap := map[string]string{"first": "первый", "second": "второй"}
+
+	fmt.Println(m1, LiteralMap)
 }
