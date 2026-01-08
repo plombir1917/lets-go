@@ -12,5 +12,6 @@ func main() {
 	fmt.Println(slice)
 
 	slice = desertMenu[:] // all elements
-	fmt.Println(slice)
+	slice[0] = "CHANGED EL"
+	fmt.Println(slice, desertMenu)
 }
