@@ -2,26 +2,24 @@ package payments
 
 import (
 	"fmt"
+	"interfaces/payments/methods"
 	"maps"
 )
 
-type PaymentMethod interface {
-	Pay(usd int) int
-	Cancel(id int)
-}
-
 type PaymentModule struct {
 	payments      map[int]PaymentInfo
-	paymentMethod PaymentMethod
+	paymentMethod methods.PaymentMethod
 }
 
-func NewPaymentModule(paymentModule PaymentMethod) *PaymentModule {
+// constructor
+func NewPaymentModule(paymentModule methods.PaymentMethod) *PaymentModule {
 	return &PaymentModule{
 		payments:      make(map[int]PaymentInfo),
 		paymentMethod: paymentModule,
 	}
 }
 
+// METHODS:
 func (p *PaymentModule) Pay(description string, usd int) int {
 	id := p.paymentMethod.Pay(usd)
 	info := PaymentInfo{
