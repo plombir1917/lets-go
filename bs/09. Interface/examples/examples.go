@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Reader interface {
 	Read(p []byte) (n int, err error)
