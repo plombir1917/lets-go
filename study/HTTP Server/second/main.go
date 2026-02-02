@@ -3,9 +3,9 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io"
 	"net/http"
 	"sync"
+	"time"
 )
 
 type Payment struct {
@@ -13,6 +13,12 @@ type Payment struct {
 	USD         int    `json:"usd"`
 	FullName    string `json:"fullName"`
 	Address     string `json:"address"`
+	Time        time.Time
+}
+
+type HttpResponse struct {
+	Money          int       `json:"money"`
+	PaymentHistory []Payment `json:"paymentHistory"`
 }
 
 func (p Payment) Println() {
@@ -30,19 +36,15 @@ func payHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		w.WriteHeader(http.StatusMethodNotAllowed)
 		return
-	}
 
-	httpRequestBody, err := io.ReadAll(r.Body)
-	if err != nil {
-		w.WriteHeader(http.StatusBadRequest)
-		return
 	}
-
 	var payment Payment
-	if err := json.Unmarshal(httpRequestBody, &payment); err != nil {
+
+	if err := json.NewDecoder(r.Body).Decode(&payment); err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
+	payment.Time = time.Now()
 
 	mtx.Lock()
 	if money >= payment.USD {
@@ -52,8 +54,23 @@ func payHandler(w http.ResponseWriter, r *http.Request) {
 	payment.Println()
 
 	paymentHistory = append(paymentHistory, payment)
-	fmt.Println("money:", money)
-	fmt.Println("payments:", paymentHistory)
+	httpResponse := HttpResponse{
+		Money:          money,
+		PaymentHistory: paymentHistory,
+	}
+
+	b, err := json.Marshal(httpResponse)
+	if err != nil {
+		fmt.Println(err)
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	if _, err := w.Write(b); err != nil {
+		fmt.Println(err)
+		return
+	}
+
 	mtx.Unlock()
 }
 
