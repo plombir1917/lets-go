@@ -19,6 +19,16 @@ func (l *List) AddTask(task Task) error {
 	return nil
 }
 
+func (l *List) GetTask(title string) (Task, error) {
+	task, ok := l.tasks[title]
+	if !ok {
+		return Task{}, ErrTaskNotFound
+	}
+
+	return task, nil
+
+}
+
 func (l *List) ListTasks() map[string]Task {
 	// обязательно переопредлеяем мапу, чтобы извне функции не было доступа к оригинальной
 	tmp := make(map[string]Task, len(l.tasks))
@@ -30,16 +40,16 @@ func (l *List) ListTasks() map[string]Task {
 	return tmp
 }
 
-func (l *List) ListNotCompletedTasks() map[string]Task {
-	notCompletedTasks := make(map[string]Task, len(l.tasks))
+func (l *List) ListUncompletedTasks() map[string]Task {
+	unCompletedTasks := make(map[string]Task, len(l.tasks))
 
 	for title, task := range l.tasks {
 		if !task.Completed {
-			notCompletedTasks[title] = task
+			unCompletedTasks[title] = task
 		}
 	}
 
-	return notCompletedTasks
+	return unCompletedTasks
 }
 
 func (l *List) CompleteTask(title string) error {
@@ -53,6 +63,16 @@ func (l *List) CompleteTask(title string) error {
 
 	return nil
 
+}
+
+func (l *List) UncompleteTask(title string) error {
+	task, ok := l.tasks[title]
+	if !ok {
+		return ErrTaskNotFound
+	}
+
+	task.Uncomplete()
+	return nil
 }
 
 func (l *List) DeleteTask(title string) error {

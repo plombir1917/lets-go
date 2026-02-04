@@ -17,6 +17,11 @@ func (t *Task) Complete() {
 	t.CompletedAt = &completeTime
 }
 
+func (t *Task) Uncomplete() {
+	t.Completed = false
+	t.CompletedAt = nil
+}
+
 func NewTask(title string, description string) Task {
 	return Task{
 		Title:       title,
