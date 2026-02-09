@@ -3,20 +3,20 @@ package main
 import "fmt"
 
 func main() {
-	for i := 1; i <101; i ++ {
+	for i := 1; i < 101; i++ {
 		found := false
 		if (i % 3) == 0 {
 			fmt.Printf("Fizz")
 			found = true
 		}
-		if (i % 5) == 0 { 
+		if (i % 5) == 0 {
 			fmt.Printf("Buzz")
 			found = true
 		}
-		if !found { 
+		if !found {
 			fmt.Println(i)
 			continue
 		}
-			fmt.Println()
+		fmt.Println()
 	}
 }
