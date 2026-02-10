@@ -20,7 +20,7 @@ func PrintAllFiles(path string, filter string) {
 
 	for _, f := range files {
 		filename := filepath.Join(path, f.Name())
-		
+
 		if strings.Contains(filename, filter) {
 			fmt.Println(filename)
 		}
