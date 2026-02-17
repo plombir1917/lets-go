@@ -14,6 +14,6 @@ func string() {
 }
 
 func Execute() {
-	fmt.Println("___Constants___")
+	fmt.Println("\n___Constants___")
 	string()
 }

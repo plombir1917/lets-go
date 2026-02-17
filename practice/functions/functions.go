@@ -3,7 +3,7 @@ package functions
 import "fmt"
 
 func Execute() {
-	fmt.Println("___Functions___")
+	fmt.Println("\n___Functions___")
 	s := []int{1, 2, 3}
 	fmt.Println(multipleReturn(s))
 }
