@@ -5,8 +5,11 @@ import (
 	"practice/conditions"
 	"practice/constants"
 	"practice/functions"
+	"practice/interfaces"
+	"practice/maps"
 	"practice/pointer"
 	"practice/slices"
+	"practice/structs"
 	"practice/variables"
 )
 
@@ -18,5 +21,7 @@ func main() {
 	arrays.Execute()
 	slices.Execute()
 	conditions.Execute()
-
+	maps.Execute()
+	structs.Execute()
+	interfaces.Execute()
 }
