@@ -4,6 +4,7 @@ import (
 	"practice/arrays"
 	"practice/conditions"
 	"practice/constants"
+	"practice/errors"
 	"practice/functions"
 	"practice/interfaces"
 	"practice/maps"
@@ -24,4 +25,5 @@ func main() {
 	maps.Execute()
 	structs.Execute()
 	interfaces.Execute()
+	errors.Execute()
 }
