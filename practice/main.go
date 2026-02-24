@@ -6,6 +6,7 @@ import (
 	"practice/constants"
 	"practice/errors"
 	"practice/functions"
+	"practice/gorutine"
 	"practice/interfaces"
 	"practice/maps"
 	"practice/panic"
@@ -28,4 +29,5 @@ func main() {
 	interfaces.Execute()
 	errors.Execute()
 	panic.Execute()
+	gorutine.Execute()
 }
