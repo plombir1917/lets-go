@@ -2,6 +2,7 @@ package main
 
 import (
 	"practice/channels"
+	selecte "practice/select"
 )
 
 func main() {
@@ -19,4 +20,5 @@ func main() {
 	// panic.Execute()
 	// gorutine.Execute()
 	channels.Execute()
+	selecte.Execute()
 }
