@@ -8,6 +8,7 @@ import (
 	"practice/functions"
 	"practice/interfaces"
 	"practice/maps"
+	"practice/panic"
 	"practice/pointer"
 	"practice/slices"
 	"practice/structs"
@@ -26,4 +27,5 @@ func main() {
 	structs.Execute()
 	interfaces.Execute()
 	errors.Execute()
+	panic.Execute()
 }
