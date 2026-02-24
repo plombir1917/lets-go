@@ -1,33 +1,22 @@
 package main
 
 import (
-	"practice/arrays"
-	"practice/conditions"
-	"practice/constants"
-	"practice/errors"
-	"practice/functions"
-	"practice/gorutine"
-	"practice/interfaces"
-	"practice/maps"
-	"practice/panic"
-	"practice/pointer"
-	"practice/slices"
-	"practice/structs"
-	"practice/variables"
+	"practice/channels"
 )
 
 func main() {
-	variables.Execute()
-	constants.Execute()
-	functions.Execute()
-	pointer.Execute()
-	arrays.Execute()
-	slices.Execute()
-	conditions.Execute()
-	maps.Execute()
-	structs.Execute()
-	interfaces.Execute()
-	errors.Execute()
-	panic.Execute()
-	gorutine.Execute()
+	// variables.Execute()
+	// constants.Execute()
+	// functions.Execute()
+	// pointer.Execute()
+	// arrays.Execute()
+	// slices.Execute()
+	// conditions.Execute()
+	// maps.Execute()
+	// structs.Execute()
+	// interfaces.Execute()
+	// errors.Execute()
+	// panic.Execute()
+	// gorutine.Execute()
+	channels.Execute()
 }
