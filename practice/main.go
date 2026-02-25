@@ -1,9 +1,6 @@
 package main
 
-import (
-	"practice/channels"
-	selecte "practice/select"
-)
+import "practice/context"
 
 func main() {
 	// variables.Execute()
@@ -19,6 +16,7 @@ func main() {
 	// errors.Execute()
 	// panic.Execute()
 	// gorutine.Execute()
-	channels.Execute()
-	selecte.Execute()
+	// channels.Execute()
+	// selecte.Execute()
+	context.Execute()
 }
