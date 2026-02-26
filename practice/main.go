@@ -1,8 +1,6 @@
 package main
 
-import (
-	"practice/wg"
-)
+import "practice/rwmutex"
 
 func main() {
 	// variables.Execute()
@@ -21,5 +19,7 @@ func main() {
 	// channels.Execute()
 	// selecte.Execute()
 	//context.Execute()
-	wg.Execute()
+	// wg.Execute()
+	// race.Execute()
+	rwmutex.Execute()
 }
