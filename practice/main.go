@@ -1,6 +1,8 @@
 package main
 
-import "practice/context"
+import (
+	"practice/wg"
+)
 
 func main() {
 	// variables.Execute()
@@ -18,5 +20,6 @@ func main() {
 	// gorutine.Execute()
 	// channels.Execute()
 	// selecte.Execute()
-	context.Execute()
+	//context.Execute()
+	wg.Execute()
 }
